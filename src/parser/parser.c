@@ -54,8 +54,7 @@ int look_pwd(t_general *general)
         }
         if(!ft_strncmp(general->envp[j], "PWD=", 4))
         {
-            general->pwd = ft_substr(general->envp[j], 4, ft_strlen(general->envp[j]) - 4);
-			printf("general->pwd %s\n", general->pwd);
+			general->pwd = ft_substr(general->envp[j], 4, ft_strlen(general->envp[j]) - 4);
         }
         j++;
     }

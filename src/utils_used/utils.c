@@ -19,12 +19,12 @@ char **ft_dupl_array(char **array)
 
     i = 0;
     while(array[i] != NULL)
-        i++;
-    dupl = ft_calloc(sizeof(char *), i + 1);
+		i++;
+	dupl = ft_calloc(sizeof(char *), i + 1);
     if (!dupl)
         return (NULL);
     i = 0;
-    while(dupl[i] != NULL)
+    while(array[i] != NULL)
     {
         dupl[i] = ft_strdup(array[i]);
         if(dupl[i] == NULL)

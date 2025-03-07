@@ -94,6 +94,18 @@ char	**expander(t_general *general, char **str)
 	tmp = NULL;
 	while (str[i] != NULL)
 	{
+		printf("Str[%d] : %s\n", i, str[i]);
+		/* Problem:
+		- dollar_sign() is being substracted 2, it can fall down on these cases:
+		1. (-2) : The input does not have any dollar sign (0 - 2) -> Invalid Read
+		2. (-1) : The input does have a dollar sign at index 0, dollar_sign() returns 1, (1 - 2) -> Invalid Read
+		*/
+		/* How to fix:
+			1. Check single/double commas in an independent function, return boolean 
+			2. Decide to ignore or substract these values depending on the boolean
+		*/
+		printf("Index trying to read inside str : %ld\n", dollar_sign(str[i]) - 2);
+
 		if (str[i][dollar_sign(str[i]) - 2] != '\'' && dollar_sign(str[i]) != 0
 			&& str[i][dollar_sign(str[i])] != '\0')
 		{
